@@ -1,1 +1,7 @@
-
+.input-group {
+    display: flexbox;
+    justify-content: left;
+    align-items: flex-start;
+    padding-left: 7vw;
+    padding-bottom: 10vh;
+}
