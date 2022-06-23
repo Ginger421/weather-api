@@ -9,70 +9,92 @@
     <title>My Weather Page</title>
 </head>
 <body>
-    <header></header>
+  <header>
+    <h1>Welcome to My Weather Page</h1>
+  </header>
     <!--search form-->
-    <h1>Search for a City</h1>
+  <div id="search">
+    <h2>Search for a City</h2>
     <div class="input-group">
         <input id="input" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
         <button id="button" type="button" class="btn btn-outline-primary">search</button>
     </div>
+  </div>
     <!--end search form-->
 
-    <!--cards for results-->  
-    <div id="day1" class="card" style="width: 18rem;">
+    <!--display currebt weather-->
+    <!--date-icon will have dat and weather icon-->
+
+    <div class="jumbotron">
+      <h2 id="city-searched" class="display-4">City</h2>
+      <p id="date-icon" class="lead"></p>
+      <hr class="my-4">
+      <p id="ul-current"></p>
+      <p class="lead">
+      </p>
+    </div>
+
+    <!--cards for 5 day forecast-->  
+  <div id="cards">
+    <!--day1-->  
+    <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 id="date1" class="card-title"></h5>
+          <h6 id="icon1" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p id="ul1" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
 
-
-      <div id="day2" class="card" style="width: 18rem;">
+      <!--day2-->
+      <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 id="date2" class="card-title"></h5>
+          <h6 id="icon2" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p id="ul2" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
 
-
+      <!--day3-->
       <div id="day3" class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 id="date3" class="card-title"></h5>
+          <h6 id="icon3" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p id="ul3" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
 
-
-      <div id="day4" class="card" style="width: 18rem;">
+      <!--day4-->
+      <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 id="date4" class="card-title"></h5>
+          <h6 id="icon4" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p id="ul4" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
 
-
-      <div id="day5" class="card" style="width: 18rem;">
+      <!--day5-->
+      <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 id="date5" class="card-title"></h5>
+          <h6 id="icon5" class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p id="ul5" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
 
+    </div>    
+    <!--end div to hold 5 day forecast-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>

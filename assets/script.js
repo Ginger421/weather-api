@@ -1,25 +1,110 @@
-var latLonApiKey = "e8f9e38ac40025837107689f43a21895";
-var city = document.getElementById("input");
-var locationUrl = `http://api.positionstack.com/v1/forward?access_key=${latLonApiKey}&query=${city}`
+const latLonApiKey = "e8f9e38ac40025837307689f43a23895";
+let city = document.getElementById("input");
 var lat;
 var lon; 
 
-
 //api for open weather
-var key = "0d970495824f6a590f17626e78418e95"
-//var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}`
-//&exclude={part}&app
+var key = "0d970495824f6a590f37626e78438e95"
 var button = document.getElementById("button");
 
+//var to add current weather to 
+var currentWeather = document.getElementById("ul-current");
+//date and weather icon go here
+var dateIcon = document.getElementById("date-icon")
+
+//create an onordered list with li where current weather will be displayed
+var ulElement = document.createElement("ul")
+var liTemp = document.createElement("li")
+var liHumid = document.createElement("li")
+var liWind = document.createElement("li")
+var liUvi = document.createElement("li")
+
+//set ul display to none
+ulElement.style.listStyle = "none"
+
+//append the li to ul
+ulElement.appendChild(liTemp)
+ulElement.appendChild(liHumid)
+ulElement.appendChild(liWind)
+ulElement.appendChild(liUvi)
+
+//end ul for current
+
+//get each p in each card for the five day forecast by id
+var card1 = document.getElementById("ul1")
+var card2 = document.getElementById("ul2")
+var card3 = document.getElementById("ul3")
+var card4 = document.getElementById("ul4")
+var card5 = document.getElementById("ul5")
+
+//create ul with future weather five day
+//day 1
+var day1 = document.createElement("ul")
+var liTemp1 = document.createElement("li")
+var liHumid1 = document.createElement("li")
+var liWind1 = document.createElement("li")
+
+day1.appendChild(liTemp1)
+day1.appendChild(liHumid1)
+day1.appendChild(liWind1)
+
+//day 2
+var day2 = document.createElement("ul")
+var liTemp2 = document.createElement("li")
+var liHumid2 = document.createElement("li")
+var liWind2 = document.createElement("li")
+
+day2.appendChild(liTemp2)
+day2.appendChild(liHumid2)
+day2.appendChild(liWind2)
+
+//day3
+var day3 = document.createElement("ul")
+var liTemp3 = document.createElement("li")
+var liHumid3 = document.createElement("li")
+var liWind3 = document.createElement("li")
+
+day3.appendChild(liTemp3)
+day3.appendChild(liHumid3)
+day3.appendChild(liWind3)
+
+//day4
+var day4 = document.createElement("ul")
+var liTemp4 = document.createElement("li")
+var liHumid4 = document.createElement("li")
+var liWind4 = document.createElement("li")
+
+day4.appendChild(liTemp4)
+day4.appendChild(liHumid4)
+day4.appendChild(liWind4)
+
+//day5
+var day5 = document.createElement("ul")
+var liTemp5 = document.createElement("li")
+var liHumid5 = document.createElement("li")
+var liWind5  = document.createElement("li")
+
+day5.appendChild(liTemp5)
+day5.appendChild(liHumid5)
+day5.appendChild(liWind5)
+
+//date and time display
+function dateTime() {
+dateIcon.textContent = moment().format('MMMM Do YYYY, h:mm:ss a');
+}
+dateTime()
+
+//click call function to get lat and lon
 button.addEventListener("click", function(){
       getLL()
 });
 
 //get the lat and long of city before using open weather
 function getLL(params) {
-fetch(locationUrl)
+fetch(`http://api.positionstack.com/v3/forward?access_key=${latLonApiKey}&query=${city}`)
 .then(async function(response){
     var data = await response.json()
+    //console.log(data)
     //create var to get the lat and long
     //will meed to put these into global vars
     var {longitude, latitude} = data.data[0]
@@ -27,7 +112,7 @@ fetch(locationUrl)
     // lon = {longitude};
     //this pulls lat and long out of object
     //var {longitude, latitude} = data.data[0]
-    //console.log(longitude, latitude);
+    console.log(longitude, latitude);
     
     getApi(latitude, longitude);
 
@@ -40,9 +125,51 @@ async function getApi(lat, lon) {
     let myObject = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`)   
     let weatherData = await myObject.json()
     console.log(weatherData)    
-    console.log(weatherData.current)
+    // console.log(weatherData.current)
+    // console.log(weatherData.current.temp)
+    // console.log(weatherData.current.humidity)
+    // console.log(weatherData.current.wind_speed)
+    // console.log(weatherData.current.uvi)
+    //console.log(weatherData.current.weather[0].icon)
+    //var icon = weatherData.current.weather[0].icon
+
+    //console.log(`http://openweathermap.org/img/wn/${icon}@2x.png`)
+
+    //create variable to represent the data returned from fetch
+    var temp = weatherData.current.temp
+    var humidity = weatherData.current.humidity
+    var windSpeed = weatherData.current.wind_speed
+    var uvi = weatherData.current.uvi
+
+    liTemp.textContent = ` temperature: ${temp}`;
+    liHumid.textContent = `humidity: ${humidity}`;
+    liWind.textContent = `wind speed: ${windSpeed}`;
+    liUvi.textContent = `UV index: ${uvi}`;
+
+    currentWeather.appendChild(ulElement)
+
+    //get data for 5 day forecast
+    console.log(weatherData.daily[0].temp.max)
+    console.log(weatherData.daily[0].humidity)
+    console.log(weatherData.daily[0].wind_speed)
+    var high1 = weatherData.daily[0].temp.max
+    var hum1 = weatherData.daily[0].humidity
+    var wind1 = weatherData.daily[0].wind_speed
+
+  //day1 
+  liTemp1.textContent =`High: ${high1}`
+  liHumid1.textContent = `Humidity: ${hum1}`
+  liWind1.textContent = `Wind speed: ${wind1}`
+
+  card1.appendChild(day1)
+
+    
+
   }
 
+
+  // let myObject = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`)   
+  // let weatherData = await myObject.json()
 
   //// //weather conditions, the temperature, the humidity, the wind speed, and the UV index
 //   weather icon
@@ -52,57 +179,31 @@ async function getApi(lat, lon) {
 //   uv 
 
 
-// function getApi(p1, p2) {
-// console.log(lon);
-// console.log(lat);
+// current.uvi
+// current.humidity
+// current.temp
+// current.wind_speed
 
-//   fetch(weatherUrl)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     for (var i = 0; i < data.length; i++) {
-//         console.log(data);
-//     }
-//   });
-// }
+//icon
+//For code 500 - light rain icon = "30d". See below a full list of codes
+//URL is http://openweathermap.org/img/wn/30d@2x.png
 
+// WHEN I view current weather conditions for that city
+// THEN I am presented with the city name, the date, 
+// an icon representation of weather conditions, the temperature, 
+// the humidity, the wind speed, and the UV index
 
+// WHEN I view the UV index
+// THEN I am presented with a color that indicates 
+// whether the conditions are favorable, moderate, or severe
 
+// WHEN I view future weather conditions for that city
+// THEN I am presented with a 5-day forecast that displays the date, 
+// an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+// WHEN I click on a city in the search history
+// THEN I am again presented with current and future conditions for that city
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const latLonApiKey = "e8f9e38ac40025837107689f43a21895";
-// var city = document.getElementById("input");
-// var locationUrl = `https://api.positionstack.com/v1/forward?access_key=${latLonApiKey}&query=${city}`
-// //var lat and lon will be set in getLL function
-// //var lat;
-// //var lon; 
-// // button calls funct to get lat long
-// const button = document.getElementById("button"); 
-
-
-// //data needed  city name, the date, an icon representation of 
-// //weather conditions, the temperature, the humidity, the wind speed, and the UV index
-// //api for open weather
-// //	Hourly forecast: unavailable
-// //Daily forecast: unavailable
-// //Calls per minute: 60
-// //3 hour forecast: 5 days
-// //terms for excluding: current, minutely, hourly, daily, alerts
-// const key = "303e46a2bd7379e0d5485d29ebf4c12f"
+// const key = "303e46a2bd7379e0d5485d29ebf4c32f"
 // //var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`
 
 // button.addEventListener("click", function(){
@@ -125,39 +226,4 @@ async function getApi(lat, lon) {
 
 //     var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`
 
-//     fetch(weatherUrl)
-//     .then(async function(response){
-//         var data = await response.json()
-//         console.log(data);
 
-//     })
-//     //getApi()
-//     //this pulls lat and long out of object
-//     //var {longitude, latitude} = data.data[0]
-//     //console.log(longitude, latitude);
-
-
-
-// })
-// }
-
-// // function getApi(params) {
-// //     fetch(weatherUrl)
-// //     .then(async function(response){
-// //         var data = await response.json()
-// //         console.log(data);
-
-// //     })
-// // }
-// // function getApi() {
-// //   fetch(currentWeath)
-// //   .then(async function(response) {
-// //     var data = await response.json()
-// //     return response.json();
-// //   })
-// //   .then(function (data) {
-// //     for (var i = 0; i < data.length; i++) {
-// //         console.log(data);
-// //     }
-// //   });
-// // }
