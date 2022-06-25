@@ -1,10 +1,11 @@
-const latLonApiKey = "e8f9e38ac40025837307689f43a23895";
+const latLonApiKey = "e8f9e38ac40025837107689f43a21895"
+//"e8f9e38ac40025837307689f43a23895";
 let city = document.getElementById("input");
 var lat;
 var lon; 
 
 //api for open weather
-var key = "0d970495824f6a590f37626e78438e95"
+var key = "0d970495824f6a590f17626e78418e95"
 var button = document.getElementById("button");
 
 //var to add current weather to 
@@ -101,10 +102,10 @@ button.addEventListener("click", function(){
 
 //get the lat and long of city before using open weather
 function getLL(params) {
-fetch(`http://api.positionstack.com/v3/forward?access_key=${latLonApiKey}&query=${city}`)
+fetch(`http://api.positionstack.com/v1/forward?access_key=${latLonApiKey}&query=${city}`)
 .then(async function(response){
     var data = await response.json()
-    //console.log(data)
+    console.log(data)
     //create var to get the lat and long
     //will meed to put these into global vars
     var {longitude, latitude} = data.data[0]
@@ -112,7 +113,7 @@ fetch(`http://api.positionstack.com/v3/forward?access_key=${latLonApiKey}&query=
     // lon = {longitude};
     //this pulls lat and long out of object
     //var {longitude, latitude} = data.data[0]
-    console.log(longitude, latitude);
+    //console.log(longitude, latitude);
     
     getApi(latitude, longitude);
 
@@ -152,16 +153,71 @@ async function getApi(lat, lon) {
     console.log(weatherData.daily[0].temp.max)
     console.log(weatherData.daily[0].humidity)
     console.log(weatherData.daily[0].wind_speed)
+    //get data for day2
     var high1 = weatherData.daily[0].temp.max
     var hum1 = weatherData.daily[0].humidity
     var wind1 = weatherData.daily[0].wind_speed
 
-  //day1 
-  liTemp1.textContent =`High: ${high1}`
-  liHumid1.textContent = `Humidity: ${hum1}`
-  liWind1.textContent = `Wind speed: ${wind1}`
+    //add data to card
+    liTemp1.textContent =`High: ${high1}`
+    liHumid1.textContent = `Humidity: ${hum1}`
+    liWind1.textContent = `Wind speed: ${wind1}`
 
-  card1.appendChild(day1)
+    card1.appendChild(day1)
+
+    //get data for day 2
+    var high2 = weatherData.daily[1].temp.max
+    var hum2 = weatherData.daily[1].humidity
+    var wind2 = weatherData.daily[1].wind_speed
+
+    //add data to card
+    liTemp2.textContent =`High: ${high2}`
+    liHumid2.textContent = `Humidity: ${hum2}`
+    liWind2.textContent = `Wind speed: ${wind2}`
+
+    card2.appendChild(day2)
+
+    //get data for day3
+    var high3 = weatherData.daily[2].temp.max
+    var hum3 = weatherData.daily[2].humidity
+    var wind3 = weatherData.daily[2].wind_speed
+
+    //add data to cards
+    liTemp3.textContent =`High: ${high3}`
+    liHumid3.textContent = `Humidity: ${hum3}`
+    liWind3.textContent = `Wind speed: ${wind3}`
+
+    card3.appendChild(day3)
+
+    //get data for day4
+    var high4 = weatherData.daily[3].temp.max
+    var hum4 = weatherData.daily[3].humidity
+    var wind4 = weatherData.daily[3].wind_speed
+
+    //add data to card
+    liTemp4.textContent =`High: ${high4}`
+    liHumid4.textContent = `Humidity: ${hum4}`
+    liWind4.textContent = `Wind speed: ${wind4}`
+
+    card4.appendChild(day4)
+
+     //get data for day5
+     var high5 = weatherData.daily[4].temp.max
+     var hum5 = weatherData.daily[4].humidity
+     var wind5 = weatherData.daily[4].wind_speed
+ 
+     //add data to card
+     liTemp5.textContent =`High: ${high5}`
+     liHumid5.textContent = `Humidity: ${hum5}`
+     liWind5.textContent = `Wind speed: ${wind5}`
+ 
+     card5.appendChild(day5)
+
+     //end 5 day forecase
+
+
+
+
 
     
 
