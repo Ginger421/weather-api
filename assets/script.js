@@ -132,7 +132,8 @@ async function getApi(lat, lon) {
     // console.log(weatherData.current.wind_speed)
     // console.log(weatherData.current.uvi)
     //console.log(weatherData.current.weather[0].icon)
-    //var icon = weatherData.current.weather[0].icon
+    var icon = weatherData.current.weather[0].icon
+    document.getElementById("icon").src= `http://openweathermap.org/img/wn/${icon}@2x.png` 
 
     //console.log(`http://openweathermap.org/img/wn/${icon}@2x.png`)
 
@@ -153,12 +154,16 @@ async function getApi(lat, lon) {
     console.log(weatherData.daily[0].temp.max)
     console.log(weatherData.daily[0].humidity)
     console.log(weatherData.daily[0].wind_speed)
+    console.log(weatherData.daily[0].weather[0].icon)
     //get data for day2
     var high1 = weatherData.daily[0].temp.max
     var hum1 = weatherData.daily[0].humidity
     var wind1 = weatherData.daily[0].wind_speed
 
     //add data to card
+    var iconDay1 = weatherData.daily[0].weather[0].icon
+    document.getElementById("icon1").src= `http://openweathermap.org/img/wn/${iconDay1}@2x.png` 
+
     liTemp1.textContent =`High: ${high1}`
     liHumid1.textContent = `Humidity: ${hum1}`
     liWind1.textContent = `Wind speed: ${wind1}`
@@ -171,6 +176,9 @@ async function getApi(lat, lon) {
     var wind2 = weatherData.daily[1].wind_speed
 
     //add data to card
+    var iconDay2 = weatherData.daily[1].weather[0].icon
+    document.getElementById("icon2").src= `http://openweathermap.org/img/wn/${iconDay2}@2x.png` 
+
     liTemp2.textContent =`High: ${high2}`
     liHumid2.textContent = `Humidity: ${hum2}`
     liWind2.textContent = `Wind speed: ${wind2}`
@@ -183,6 +191,9 @@ async function getApi(lat, lon) {
     var wind3 = weatherData.daily[2].wind_speed
 
     //add data to cards
+    var iconDay3 = weatherData.daily[2].weather[0].icon
+    document.getElementById("icon3").src= `http://openweathermap.org/img/wn/${iconDay3}@2x.png` 
+
     liTemp3.textContent =`High: ${high3}`
     liHumid3.textContent = `Humidity: ${hum3}`
     liWind3.textContent = `Wind speed: ${wind3}`
@@ -195,6 +206,9 @@ async function getApi(lat, lon) {
     var wind4 = weatherData.daily[3].wind_speed
 
     //add data to card
+    var iconDay4 = weatherData.daily[3].weather[0].icon
+    document.getElementById("icon4").src= `http://openweathermap.org/img/wn/${iconDay4}@2x.png` 
+
     liTemp4.textContent =`High: ${high4}`
     liHumid4.textContent = `Humidity: ${hum4}`
     liWind4.textContent = `Wind speed: ${wind4}`
@@ -207,22 +221,22 @@ async function getApi(lat, lon) {
      var wind5 = weatherData.daily[4].wind_speed
  
      //add data to card
+     var iconDay5 = weatherData.daily[4].weather[0].icon
+     document.getElementById("icon5").src= `http://openweathermap.org/img/wn/${iconDay5}@2x.png` 
+
      liTemp5.textContent =`High: ${high5}`
      liHumid5.textContent = `Humidity: ${hum5}`
      liWind5.textContent = `Wind speed: ${wind5}`
  
      card5.appendChild(day5)
 
-     //end 5 day forecase
-
-
-
-
-
-    
+     //end 5 day forecase    
 
   }
+//end getApi
 
+
+//localStorage.setItem(key, value);
 
   // let myObject = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`)   
   // let weatherData = await myObject.json()
