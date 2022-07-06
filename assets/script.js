@@ -95,6 +95,32 @@ dateIcon.textContent = moment().format('MMMM Do YYYY, h:mm:ss a');
 }
 dateTime()
 
+//add date to 5 day forcast
+var fiveDay1 = document.getElementById(date1)
+function firstDay() {
+  fiveDay1.textContent = moment().add(1, 'days').calendar();
+}
+
+var fiveDay2 = document.getElementById(date2)
+function secondDay() {
+  fiveDay2.textContent = moment().add(2, 'days').calendar();
+}
+
+var fiveDay3 = document.getElementById(date3)
+function thirdDay() {
+  fiveDay3.textContent = moment().add(3, 'days').calendar();
+}
+
+var fiveDay4 = document.getElementById(date4)
+function fourthDay() {
+  fiveDay4.textContent = moment().add(4, 'days').calendar();
+}
+
+var fiveDay5 = document.getElementById(date5)
+function fifthDay() {
+  fiveDay5.textContent = moment().add(5, 'days').calendar();
+}
+
 //click call function to get lat and lon
 button.addEventListener("click", function(){
       getLL()
@@ -160,7 +186,7 @@ async function getApi(lat, lon) {
     var hum1 = weatherData.daily[0].humidity
     var wind1 = weatherData.daily[0].wind_speed
 
-    //add data to card
+    //add data to card 
     var iconDay1 = weatherData.daily[0].weather[0].icon
     document.getElementById("icon1").src= `http://openweathermap.org/img/wn/${iconDay1}@2x.png` 
 
@@ -231,6 +257,13 @@ async function getApi(lat, lon) {
      card5.appendChild(day5)
 
      //end 5 day forecase    
+    
+     //call function to display date on 5 day cards
+     firstDay()
+     secondDay()
+     thirdDay()
+     fourthDay()
+     fifthDay()
 
   }
 //end getApi
