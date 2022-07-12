@@ -1,8 +1,9 @@
 const latLonApiKey = "e8f9e38ac40025837107689f43a21895"
 //"e8f9e38ac40025837307689f43a23895";
-let city = document.getElementById("input");
-var lat;
-var lon; 
+//let city = document.getElementById("input").innerText;
+let city;
+let lat;
+let lon; 
 
 //api for open weather
 var key = "0d970495824f6a590f17626e78418e95"
@@ -123,26 +124,36 @@ function fifthDay() {
 
 //click call function to get lat and lon
 button.addEventListener("click", function(){
+
+
       getLL()
 });
 
 //get the lat and long of city before using open weather
-function getLL(params) {
-fetch(`http://api.positionstack.com/v1/forward?access_key=${latLonApiKey}&query=${city}`)
-.then(async function(response){
-    var data = await response.json()
+function getLL() {
+  city = document.getElementById("input").value;
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+.then( function(data){
+    //var data = await response.json()
     console.log(data)
+  return data.json()
     //create var to get the lat and long
     //will meed to put these into global vars
-    var {longitude, latitude} = data.data[0]
-    // lat = {latitude};
-    // lon = {longitude};
+    //var {longitude, latitude} = data.data[0]
+    //  lat = response.coord.lat;
+    //  lon = response.coord.lon;
     //this pulls lat and long out of object
     //var {longitude, latitude} = data.data[0]
     //console.log(longitude, latitude);
     
-    getApi(latitude, longitude);
+    
 
+})
+.then (function (data) {
+  console.log(data)
+  lat = data.coord.lat;
+  lon = data.coord.lon;
+  getApi(lat, lon);
 })
    
 }
