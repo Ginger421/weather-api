@@ -282,62 +282,6 @@ async function getApi(lat, lon) {
 
 //localStorage.setItem(key, value);
 
-  // let myObject = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=imperial`)   
-  // let weatherData = await myObject.json()
 
-  //// //weather conditions, the temperature, the humidity, the wind speed, and the UV index
-//   weather icon
-//   temp 
-//   hum  
-//   wind 
-//   uv 
-
-
-// current.uvi
-// current.humidity
-// current.temp
-// current.wind_speed
-
-//icon
-//For code 500 - light rain icon = "30d". See below a full list of codes
-//URL is http://openweathermap.org/img/wn/30d@2x.png
-
-// WHEN I view current weather conditions for that city
-// THEN I am presented with the city name, the date, 
-// an icon representation of weather conditions, the temperature, 
-// the humidity, the wind speed, and the UV index
-
-// WHEN I view the UV index
-// THEN I am presented with a color that indicates 
-// whether the conditions are favorable, moderate, or severe
-
-// WHEN I view future weather conditions for that city
-// THEN I am presented with a 5-day forecast that displays the date, 
-// an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-// WHEN I click on a city in the search history
-// THEN I am again presented with current and future conditions for that city
-
-// const key = "303e46a2bd7379e0d5485d29ebf4c32f"
-// //var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`
-
-// button.addEventListener("click", function(){
-//       getLL()
-// });
-
-// //get the lat and long of city before using open weather
-// function getLL(params) {
-// fetch(locationUrl)
-// .then(async function(response){
-//     var data = await response.json()
-//     //create var to get the lat and long
-//     //will meed to put these into global vars
-//     var {longitude} = data.data[0]
-//     var {latitude} = data.data[0]
-//     // lat = {latitude};
-//     // lon = {longitude};
-//     console.log(lon);
-//     console.log(lat);
-
-//     var weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${key}`
 
 
