@@ -13,6 +13,15 @@ h1 {
     padding-bottom: 10vh;
 }
 
+#cards {
+    background-image: url("storm.jpg");
+    display: inline-flexbox;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
 .card {
+    padding: 2rem;
+    margin: 1rem;
 
 }
