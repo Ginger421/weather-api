@@ -14,14 +14,24 @@ h1 {
 }
 
 #cards {
-    background-image: url("storm.jpg");
-    display: inline-flexbox;
-    justify-content: center;
-    padding-top: 1rem;
+    background: hsla(202, 71%, 27%, 1);
+
+    background: linear-gradient(90deg, hsla(202, 71%, 27%, 1) 0%, hsla(176, 45%, 66%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(202, 71%, 27%, 1) 0%, hsla(176, 45%, 66%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(202, 71%, 27%, 1) 0%, hsla(176, 45%, 66%, 1) 100%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#145277", endColorstr="#83D0CB", GradientType=1 );
+
+    width: 100%;
+    padding-top: 1vh;
 }
 
 .card {
-    padding: 2rem;
-    margin: 1rem;
-
+    padding: 1vh;
+    margin-left: 40%;
+    padding: 1rem;
+    color: rgb(196, 190, 211);
+    background-color: lightblue;
 }
