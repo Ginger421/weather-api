@@ -1,20 +1,26 @@
 h1 {
     display: flex;
     justify-content: center;
-    background-color: blue;
+    background-color: hsla(202, 71%, 27%, 1);
     color: aliceblue;
     margin-bottom: 1rem;
 }
+
+ul {
+    list-style-type: none;
+}
+
 
 .input-group {
     display: flexbox;
     justify-content: left;
     align-items: flex-start;
     padding-left: 7vw;
+    margin-bottom: 1vh;
 }
 
-#cards {
-    background: hsla(202, 71%, 27%, 1);
+.results1 {
+     background: hsla(202, 71%, 27%, 1);
 
     background: linear-gradient(90deg, hsla(202, 71%, 27%, 1) 0%, hsla(176, 45%, 66%, 1) 100%);
 
@@ -24,6 +30,11 @@ h1 {
 
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#145277", endColorstr="#83D0CB", GradientType=1 );
 
+}
+
+#cards {
+    background-image: url(umbrellas-small.jpg);
+    background-repeat: repeat;
     width: 100%;
     display: flex;
     flex-direction: row;
