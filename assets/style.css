@@ -30,20 +30,24 @@ ul {
 
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#145277", endColorstr="#83D0CB", GradientType=1 );
 
+    height: 20vh;
 }
 
 #cards {
     background-image: url(umbrellas-small.jpg);
     background-repeat: repeat;
+    background-size: contain;
     width: 100%;
+    height: 80vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
 .card {
+    height: 20vh;
     padding: 1rem;
-    margin: 1rem;
+    margin: 3rem;
     color: 0, 119, 182; 
     background-color: lightblue;
 }
