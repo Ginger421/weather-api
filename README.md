@@ -7,7 +7,7 @@ Deployed: https://ginger421.github.io/weather-api/
 
 ## Table of Contents
 * [Usage](#usage)
-* [License](#)
+* [License](#license)
 * [Testing](#testing)
 * [Credits](#credits)
 * [Questions](#questions)
@@ -15,8 +15,12 @@ Deployed: https://ginger421.github.io/weather-api/
 ## Usage
 Please visit the deployed page and enter the city you would like to search for. After clicking enter, a five-day wearher forecast will be generated.
 
+## License
+![image](https://user-images.githubusercontent.com/101539821/195421205-75d9058a-9528-4224-8a53-491b47f330e9.png)
+
+
 ## Testing 
-No testig was done on this application.
+No testing was done on this application.
 
 ## Credits
 OpenWeather's API is connected, https://openweathermap.org/ .
