@@ -15,6 +15,9 @@ Deployed: https://ginger421.github.io/weather-api/
 ## Usage
 Please visit the deployed page and enter the city you would like to search for. After clicking enter, a five-day wearher forecast will be generated.
 
+![image](https://github.com/Ginger421/weather-api/assets/101539821/57a2e5e3-2866-44d0-9765-e9ce032d1fd2)
+
+
 ## License
 ![image](https://user-images.githubusercontent.com/101539821/195421205-75d9058a-9528-4224-8a53-491b47f330e9.png)
 
