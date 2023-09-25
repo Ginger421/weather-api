@@ -23,9 +23,7 @@ Please visit the deployed page and enter the city you would like to search for. 
 No testing was done on this application.
 
 ## Credits
-OpenWeather's API is connected, https://openweathermap.org/ .
-Background image of umbrellas by Angela Compagnoneon Unsplash,
-https://unsplash.com/photos/XSUvsYl_LrE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink
+OpenWeather's API is connected, https://openweathermap.org/ 
 
 ## Questions
 Email: gingerowen0421@gmail.com
